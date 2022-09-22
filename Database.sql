@@ -1,4 +1,4 @@
-CREATE SCHEMA `APP_DATABASE`;
+SHOW DATABASE;
 
 USE `APP_DATABASE`;
 
@@ -21,13 +21,11 @@ CREATE TABLE `APP_DATABASE`.`user` (
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO `APP_DATABASE`.`category` (`nome`) VALUES ('TV News');
+INSERT INTO `APP_DATABASE`.`category` (`name`) VALUES ('TV News');
+INSERT INTO `APP_DATABASE`.`category` (`name`) VALUES ('Sports');
 
-SELECT * FROM APP_DATABASE.category;
+SELECT id, name FROM APP_DATABASE.category;
 
 INSERT INTO `APP_DATABASE`.`news` (`title`, `content`) VALUES ('Best TV Show of all time', 'It\'s Supernatural series ...');
 
 SELECT * FROM APP_DATABASE.news;
-
-
-

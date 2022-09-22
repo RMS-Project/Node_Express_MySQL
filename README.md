@@ -101,6 +101,6 @@ Note:Instead of installing the mysql package, install mysql2. It has the most up
 
 **MySQL 2 package**
 ```
-npm install mysql2
+yarn add mysql2
 ```
-28:22
+3- 12:00
