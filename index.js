@@ -22,6 +22,12 @@ app.get('/news-api/v1/categories/:categoryId/news', (req, res) => {
   getNews(req, res)
 })
 
+// Busca de categorias.
+app.get('/news-api/v1/categories/:categoryId/news/:newsId', (req, res) => {
+  getNewsContent(req, res)
+})
+
+
 // Escuta solicitações e serve a aplicação Node.
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
@@ -71,7 +77,7 @@ async function getNews(request,response) {
 
   // ? - É um espaço reservado que faz com que o parâmetro "categoryId"
   //     seja tratado como uma string comum. Evitando o SQL injection.
-  const query = 'SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = ?;'
+  const query = 'SELECT id, title FROM APP_DATABASE.news WHERE id_category = ?;'
   connection.query(query, [categoryId], function(err, rows) {
 
     if (err) throw err
@@ -79,6 +85,23 @@ async function getNews(request,response) {
       // response.json(rows)
   })
 }
+
+async function getNewsContent(request,response) {
+
+  let categoryId = request.params.categoryId
+  let newsId = request.params.newsId
+
+  // ? - É um espaço reservado que faz com que o parâmetro "categoryId"
+  //     seja tratado como uma string comum. Evitando o SQL injection.
+  const query = 'SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = ? AND id = ?;'
+  connection.query(query, [categoryId, newsId], function(err, rows) {
+
+    if (err) throw err
+      response.send(rows)
+      // response.json(rows)
+  })
+}
+
 
 /* DQL, DDL e DML
 

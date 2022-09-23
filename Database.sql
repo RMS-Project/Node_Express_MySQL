@@ -33,7 +33,11 @@ SELECT id, name FROM APP_DATABASE.category;
 
 INSERT INTO `APP_DATABASE`.`news` (`id_category`,`title`, `content`) VALUES ('1', 'Best TV Show of all time', 'It\'s Supernatural series ...');
 INSERT INTO `APP_DATABASE`.`news` (`id_category`, `title`, `content`) VALUES ('2', 'Pigossi and Stefani claim Brazil’s first Olympic tennis medal', 'Laura Pigossi and Luisa Stefani pulled off an implausible rebound triumph in the bronze-decoration last at the Tokyo Olympics on Saturday, collecting a noteworthy first Olympic award in tennis for Brazil.');
+INSERT INTO `APP_DATABASE`.`news` (`id_category`, `title`, `content`) VALUES ('2', 'Pakistan vs England: Harry Brook & Ben Duckett star with bat as tourists retake series lead', 'England take 2-1 series lead after Harry Brook and Ben Duckett share unbeaten 139-run stand to help tourists post 221-3; Pakistan slump to 158-8 as Mark Wood impresses on return; watch the fourth T20I between Pakistan and England live on Sky Sports Cricket at 3pm on Sunday');
+
 
 SELECT * FROM APP_DATABASE.news;
 
-SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = 1;
+SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = 2;
+
+SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = 1 AND id = 1;
