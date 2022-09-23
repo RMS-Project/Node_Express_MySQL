@@ -103,4 +103,10 @@ Note:Instead of installing the mysql package, install mysql2. It has the most up
 ```
 yarn add mysql2
 ```
-3- 12:00
+**Route parameters with Express** <br>
+https://expressjs.com/en/guide/routing.html
+
+**How to prevent SQL injection attacks in Node.js** <br>
+https://planetscale.com/blog/how-to-prevent-sql-injection-attacks-in-node-js
+
+4- 9:50
