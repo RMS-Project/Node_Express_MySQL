@@ -66,8 +66,18 @@ SHOW DATABASES;
 **Type "exit" to exit MySQL** <br>
 
 **In the program installer search and install "mysql-workbench-community"** <br>
-https://dev.mysql.com/downloads/workbench/
+<a href="https://dev.mysql.com/downloads/workbench/" target="_blank">https://dev.mysql.com/downloads/workbench/</a> <br>
+Download version: (mysql-workbench-community_8.0.30-1ubuntu22.04_amd64.deb)
 
+**From the download location, run the installation:** <br>
+```
+sudo dpkg -i name <file.deb>
+```
+
+**if the workbench does not run, install the necessary dependencies.** <br>
+```
+sudo apt-get install libmysqlclient21 libpcrecpp0v5 libproj22 libzip4 proj-data
+```
 ----------------------------------------------------------------------------------------
 
 **Create file package.json**
@@ -75,7 +85,7 @@ https://dev.mysql.com/downloads/workbench/
 npm init 
 ```
 **Visit expressjs** <br>
-https://expressjs.com/pt-br/
+<a href="https://expressjs.com/pt-br/" target="_blank">https://expressjs.com/pt-br/</a> <br>
 
 **Install express dependencies**
 ```
@@ -88,7 +98,7 @@ touch index.js
 ```
 
 **Copy code Hello World** <br>
-https://expressjs.com/pt-br/starter/hello-world.html
+<a href="https://expressjs.com/pt-br/starter/hello-world.html" target="_blank">https://expressjs.com/pt-br/starter/hello-world.html</a> <br>
 
 **Load Refresh**
 ```
@@ -96,7 +106,7 @@ yarn add -D nodemon
 ```
 
 **Database integraion** <br>
-https://expressjs.com/pt-br/guide/database-integration.html#mysql <br>
+<a href="https://expressjs.com/pt-br/guide/database-integration.html#mysql" target="_blank">https://expressjs.com/pt-br/guide/database-integration.html#mysql</a> <br>
 Note:Instead of installing the mysql package, install mysql2. It has the most up-to-date and complete tools.
 
 **MySQL 2 package**
@@ -104,9 +114,9 @@ Note:Instead of installing the mysql package, install mysql2. It has the most up
 yarn add mysql2
 ```
 **Route parameters with Express** <br>
-https://expressjs.com/en/guide/routing.html
+<a href="https://expressjs.com/en/guide/routing.html" target="_blank">https://expressjs.com/en/guide/routing.html</a> <br>
 
 **How to prevent SQL injection attacks in Node.js** <br>
-https://planetscale.com/blog/how-to-prevent-sql-injection-attacks-in-node-js
-
-4- 9:50
+<a href="https://planetscale.com/blog/how-to-prevent-sql-injection-attacks-in-node-js
+" target="_blank">https://planetscale.com/blog/how-to-prevent-sql-injection-attacks-in-node-js
+</a> <br>

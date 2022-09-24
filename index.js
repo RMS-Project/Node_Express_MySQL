@@ -63,8 +63,8 @@ function getCategories(response) {
 
     // Caso não apresente erro, envia as linhas da tabela
     if (err) throw err
-      response.send(rows)
-      // response.json(rows)
+      response.json({rows}) // Retorna um json com um array "rows".
+      response.send(rows) // Retorna um Array.
   })
 
   // Fecha conexão com o banco de dados.
@@ -81,7 +81,7 @@ async function getNews(request,response) {
   connection.query(query, [categoryId], function(err, rows) {
 
     if (err) throw err
-      response.send(rows)
+      response.send(rows[0])
       // response.json(rows)
   })
 }
@@ -97,7 +97,7 @@ async function getNewsContent(request,response) {
   connection.query(query, [categoryId, newsId], function(err, rows) {
 
     if (err) throw err
-      response.send(rows)
+      response.send(rows[0])
       // response.json(rows)
   })
 }
