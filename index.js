@@ -64,7 +64,7 @@ function getCategories(response) {
     // Caso não apresente erro, envia as linhas da tabela
     if (err) throw err
       response.json({rows}) // Retorna um json com um array "rows".
-      response.send(rows) // Retorna um Array.
+      // response.send(rows) // Retorna um Array.
   })
 
   // Fecha conexão com o banco de dados.
