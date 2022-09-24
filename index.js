@@ -17,12 +17,12 @@ app.get('/news-api/v1/categories', (req, res) => {
   getCategories(res)
 })
 
-// Busca de categorias.
+// Busca de noticias por categoria.
 app.get('/news-api/v1/categories/:categoryId/news', (req, res) => {
   getNews(req, res)
 })
 
-// Busca de categorias.
+// Busca de noticia especifica de uma categoria.
 app.get('/news-api/v1/categories/:categoryId/news/:newsId', (req, res) => {
   getNewsContent(req, res)
 })
@@ -81,7 +81,8 @@ async function getNews(request,response) {
   connection.query(query, [categoryId], function(err, rows) {
 
     if (err) throw err
-      response.send(rows[0])
+      response.send(rows)
+      //response.send(rows[0])
       // response.json(rows)
   })
 }
@@ -97,7 +98,8 @@ async function getNewsContent(request,response) {
   connection.query(query, [categoryId, newsId], function(err, rows) {
 
     if (err) throw err
-      response.send(rows[0])
+      response.send(rows)
+      //response.send(rows[0])
       // response.json(rows)
   })
 }
