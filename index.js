@@ -1,5 +1,6 @@
 // Inclusão dos pacotes.
-import Express from 'express'
+import Express, { response } from 'express'
+import cors from 'cors'
 
 // Instancia o express.
 const app = Express()
@@ -7,37 +8,20 @@ const app = Express()
 // Definição da interface de rede.
 const port = 3000
 
-// Apresenta a origem da requisição e a data.
-function requestLog(req, res, next) {
-  console.log(`O ip: ${res.ip} acessou a rota: ${req.originalUrl}`)
-  console.log('Time:', Date.now())
-  next()
+// Definição das aplicações externas que podem acessar a API.
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  //origin: 'http://127.0.0.1:5173',
+  optionsSuccessStatus: 200 // Para legacy browsers (IE11, várias SmartsTVs)
 }
 
-// Verifica a pass.
-function checkPassword(req, res, next) {
-  const { pass } = req.query
+// Aplica cors a todas as rotas.
+app.use(cors(corsOptions))
 
-  // Se pass for diferente de 123456789 não continua a requisição.
-  if (!pass || pass !== "123456789") {
-    return res.status(400).json("errado")
-  }
-
-  next()
-}
-
-/* Executa a middleware. */
-/* OBS: importante estar antes das funções das rotas. */
-/* Existe dois tipos de middleware globais como esta ou locais */
-// app.use(requestLog)
+app.use(Express.json())
 
 // Serviço oferecido no endereço raiz.
-// Exemplo de um middleware local.
-app.get('/', requestLog, (req, res) => { // Pose-se colocar quantos middlewares quiser.
-  res.send('Hello World!')
-})
-
-app.get('/login', requestLog, checkPassword, (req, res) => { // Pose-se colocar quantos middlewares quiser.
+app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
@@ -56,6 +40,13 @@ app.get('/news-api/v1/categories/:categoryId/news/:newsId', (req, res) => {
   getNewsContent(req, res)
 })
 
+app.post('/news-api/v1/user', /*cors(corsOptions),*/ (req, res) => {
+  setUser(req, res)
+}) 
+
+app.get('/news-api/v1/users', /*cors(corsOptions),*/ (req, res) => {
+  getUsers(req, res)
+})  
 
 // Escuta solicitações e serve a aplicação Node.
 app.listen(port, () => {
@@ -133,6 +124,33 @@ async function getNewsContent(request,response) {
   })
 }
 
+async function getUsers(request,response) {
+
+  let sql = 'SELECT id, name FROM APP_DATABASE.user;'
+
+  connection.query(sql, function(err, rows) {
+
+    if (err) throw err
+      response.json({rows})
+
+  })
+}
+
+async function setUser(request,response) {
+  const body = request.body
+
+  let name = body.name
+  let email = body.email
+  let password = body.password
+  
+  const query = 'INSERT INTO user (name, email, password) VALUES (?,  ?, ?);'
+  connection.query(query, [name, email, password], function(err, rows) {
+    
+    if (err) throw err
+      response.status(201)
+      response.send(rows)
+  })
+}
 
 /* DQL, DDL e DML
 

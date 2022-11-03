@@ -41,3 +41,13 @@ SELECT * FROM APP_DATABASE.news;
 SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = 2;
 
 SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = 1 AND id = 1;
+
+
+insert into user (name, email, password) values ('Winnah', 'wkilmartin0@live.com', '123456789');
+insert into user (name, email, password) values ('Leila', 'lstearndale1@wufoo.com', '123456789');
+insert into user (name, email, password) values ('Holmes', 'hgoodredge2@seattletimes.com', '123456789');
+insert into user (name, email, password) values ('Mac', 'mdelayglesia3@naver.com', '123456789');
+insert into user (name, email, password) values ('Averill', 'adeluna4@about.com', '123456789');
+insert into user (name, email, password) values ('Craig', 'ckieff5@usda.gov', '123456789');
+
+SELECT id, name, email, password FROM APP_DATABASE.user; 
