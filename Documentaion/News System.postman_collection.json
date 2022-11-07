@@ -76,31 +76,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "CheckPassword",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/login?pass=123456789",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"login"
-					],
-					"query": [
-						{
-							"key": "pass",
-							"value": "123456789"
-						}
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
