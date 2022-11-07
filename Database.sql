@@ -22,9 +22,11 @@ CREATE TABLE `APP_DATABASE`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
+  `password` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`)
 );
+
+DROP TABLE APP_DATABASE.user;
 
 INSERT INTO `APP_DATABASE`.`category` (`name`) VALUES ('TV News');
 INSERT INTO `APP_DATABASE`.`category` (`name`) VALUES ('Sports');
@@ -33,21 +35,20 @@ SELECT id, name FROM APP_DATABASE.category;
 
 INSERT INTO `APP_DATABASE`.`news` (`id_category`,`title`, `content`) VALUES ('1', 'Best TV Show of all time', 'It\'s Supernatural series ...');
 INSERT INTO `APP_DATABASE`.`news` (`id_category`, `title`, `content`) VALUES ('2', 'Pigossi and Stefani claim Brazil’s first Olympic tennis medal', 'Laura Pigossi and Luisa Stefani pulled off an implausible rebound triumph in the bronze-decoration last at the Tokyo Olympics on Saturday, collecting a noteworthy first Olympic award in tennis for Brazil.');
-INSERT INTO `APP_DATABASE`.`news` (`id_category`, `title`, `content`) VALUES ('2', 'Pakistan vs England: Harry Brook & Ben Duckett star with bat as tourists retake series lead', 'England take 2-1 series lead after Harry Brook and Ben Duckett share unbeaten 139-run stand to help tourists post 221-3; Pakistan slump to 158-8 as Mark Wood impresses on return; watch the fourth T20I between Pakistan and England live on Sky Sports Cricket at 3pm on Sunday');
-
 
 SELECT * FROM APP_DATABASE.news;
 
-SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = 2;
+SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = 1;
 
-SELECT id, title, content FROM APP_DATABASE.news WHERE id_category = 1 AND id = 1;
+SELECT * FROM APP_DATABASE.user; 
 
+insert into APP_DATABASE.user (name, email, password) values ('Winnah', 'wkilmartin0@live.com', '123456789');
+insert into APP_DATABASE.user (name, email, password) values ('Leila', 'lstearndale1@wufoo.com', '123456789');
+insert into APP_DATABASE.user (name, email, password) values ('Holmes', 'hgoodredge2@seattletimes.com', '123456789');
+insert into APP_DATABASE.user (name, email, password) values ('Mac', 'mdelayglesia3@naver.com', '123456789');
+insert into APP_DATABASE.user (name, email, password) values ('Averill', 'adeluna4@about.com', '123456789');
+insert into APP_DATABASE.user (name, email, password) values ('Craig', 'ckieff5@usda.gov', '123456789');
 
-insert into user (name, email, password) values ('Winnah', 'wkilmartin0@live.com', '123456789');
-insert into user (name, email, password) values ('Leila', 'lstearndale1@wufoo.com', '123456789');
-insert into user (name, email, password) values ('Holmes', 'hgoodredge2@seattletimes.com', '123456789');
-insert into user (name, email, password) values ('Mac', 'mdelayglesia3@naver.com', '123456789');
-insert into user (name, email, password) values ('Averill', 'adeluna4@about.com', '123456789');
-insert into user (name, email, password) values ('Craig', 'ckieff5@usda.gov', '123456789');
+SELECT email, password FROM APP_DATABASE.user WHERE email = 'rms@localhost.com' AND password = '123456789';
 
-SELECT id, name, email, password FROM APP_DATABASE.user; 
+select * from APP_DATABASE.user;
