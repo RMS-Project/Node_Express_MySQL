@@ -198,6 +198,7 @@ async function getNewsContent(request, response) {
 }
 
 async function getUsers(request, response) {
+
   let sql = "SELECT id, name, email FROM APP_DATABASE.user;";
 
   connection.query(sql, function (err, rows) {
